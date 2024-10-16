@@ -1,11 +1,11 @@
-class ListNode {
+class ListNodeCLass {
   constructor(val) {
     this.val = val; // 节点的值
     this.next = null;   // 指向下一个节点的引用，初始时为空
   }
 }
 
-class LinkedList {
+class LinkedListClass {
   constructor() {
     this.head = null; // 链表的头节点
     this.size = 0;    // 链表的大小
@@ -71,4 +71,24 @@ class LinkedList {
   }
 }
 
-module.exports = { LinkedList }
+var ListNode = function (x) {
+  this.val = x;
+  this.next = null;
+};
+
+// 输入一个数组，转换为一条单链表
+var createLinkedList = function (arr) {
+  if (arr == null || arr.length == 0) {
+    return null;
+  }
+  var head = new ListNode(arr[0]);
+  var cur = head;
+  for (var i = 1; i < arr.length; i++) {
+    cur.next = new ListNode(arr[i]);
+    cur = cur.next;
+  }
+  return head;
+}
+
+
+module.exports = { ListNode, createLinkedList }
