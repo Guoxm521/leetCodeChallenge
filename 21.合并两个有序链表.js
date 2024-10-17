@@ -1,5 +1,17 @@
-const { ListNode, createLinkedList } = require('./util')
+/*
+ * @lc app=leetcode.cn id=21 lang=javascript
+ *
+ * [21] 合并两个有序链表
+ */
 
+// @lc code=start
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
 /**
  * @param {ListNode} list1
  * @param {ListNode} list2
@@ -18,14 +30,8 @@ var mergeTwoLists = function (list1, list2) {
     }
     cur = cur.next
   }
-  res.next = list1 === null ? list2 : list1;
+  cur.next = list1 === null ? list2 : list1;
   return res.next
 };
+// @lc code=end
 
-
-let list1 = createLinkedList([1, 2, 4])
-let list2 = createLinkedList([1, 3, 4])
-
-
-
-mergeTwoLists(list1, list2)
